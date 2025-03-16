@@ -42,16 +42,16 @@ const (
 )
 
 func (f *flags) Parse(data uint16) {
-	f.QR = uint8(data & QRMask >> QRPosition)
-	f.OpCode = uint8(data & OPCodeMask >> OPCodePosition)
-	f.AA = uint8(data & AAMask >> AAPosition)
-	f.TC = uint8(data & TCMask >> TCPosition)
-	f.RD = uint8(data & RDMask >> RDPosition)
-	f.RA = uint8(data & RAMask >> RAPosition)
-	f.Z = uint8(data & ZMask >> ZPosition)
-	f.AD = uint8(data & ADMask >> ADPosition)
-	f.CD = uint8(data & CDMask >> CDPosition)
-	f.RCode = uint8(data & RCodeMask >> RCodePosition)
+	f.QR = uint8((data & QRMask) >> QRPosition)
+	f.OpCode = uint8((data & OPCodeMask) >> OPCodePosition)
+	f.AA = uint8((data & AAMask) >> AAPosition)
+	f.TC = uint8((data & TCMask) >> TCPosition)
+	f.RD = uint8((data & RDMask) >> RDPosition)
+	f.RA = uint8((data & RAMask) >> RAPosition)
+	f.Z = uint8((data & ZMask) >> ZPosition)
+	f.AD = uint8((data & ADMask) >> ADPosition)
+	f.CD = uint8((data & CDMask) >> CDPosition)
+	f.RCode = uint8(data & RCodeMask)
 }
 
 func (f *flags) Serialize() uint16 {
